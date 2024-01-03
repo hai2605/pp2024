@@ -9,6 +9,6 @@ Students are expected to:
 Student Info
 =========================
 
-* Student Name: USTH CS/DS/MATH Laziness 
-* Student ID: Not-Vietnamese
+* Student Name: Nguyễn Đình hải 
+* Student ID: BA12-068
 
