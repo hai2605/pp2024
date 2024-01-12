@@ -10,19 +10,25 @@ def numberOfCourse():
 
 
 #Input students' infos
-def studentInfos(students):
-    studentID = input("Enter the student ID: ")
-    studentName = input("Enter the student's name: ")
-    studentDoB = input("Enter the student's date of birth: ")
+def studentInfos(students, numOfStudent):
+    for i in range(numOfStudent):
+        print(f"Student {i+1}:")
+        studentID = input("Enter the student ID: ")
+        studentName = input("Enter the student's name: ")
+        studentDoB = input("Enter the student's date of birth: ")
+        students.append({'id': studentID, 'name': studentName, 'DoB': studentDoB, 'marks': {}})
 
-    return students.append({'id': studentID, 'name': studentName, 'DoB': studentDoB, 'marks': {}})
+    return students 
 
 #Input courses' infos
-def courseInfos(courses):
-    courseID = input("Enter course ID: ")
-    courseName = input("Enter course's name: ")
+def courseInfos(courses, numOfCourse):
+    for i in range(numOfCourse):
+        print(f"Course {i+1}:")
+        courseID = input("Enter course ID: ")
+        courseName = input("Enter course's name: ")
+        courses.append({'id': courseID, 'name': courseName})
     
-    return courses.append({'id': courseID, 'name': courseName})
+    return courses
 
 #Select courses
 def selectCourse(courses):
@@ -42,10 +48,7 @@ def listStudents(students):
     else:
         print("Here is the student list: ")
         for i , student in  enumerate(students):
-            print(f"{i+1}. {student['id']} - {student['name']} - {student['DoB']}")
-
-            if "marks" in student:
-                print("Marks (Course Id - Mark): ", end="")   
+            print(f"{i+1}. {student['id']} - {student['name']} - {student['DoB']}\n")
 
 # Display a list of courses
 def listCourses(courses):
@@ -69,15 +72,13 @@ def main():
     courses = []
     
     numOfStudents = numberOfStudent()
-    for i in range(numOfStudents):
-       studentInfos(students)
+    studentInfos(students, numOfStudents)
             
     numOfCourses = numberOfCourse()
-    for i in range(numOfCourses):
-       courseInfos(courses)
+    courseInfos(courses, numOfCourses)
 
     while(True):
-        print("/n1. Select Course and Input Marks")
+        print("1. Select Course and Input Marks")
         print("2. List Courses")
         print("3. List Students")
         print("4. Show Student Marks for a Course")
@@ -94,9 +95,10 @@ def main():
                         if course['id'] == courseID:
                             inputMark(student, course)
                         else:
-                            print("Course not found!")
+                            print("Course not found!")    
                 else:
                     print("Student not found!")
+                    
 
         elif choice == '2':
             listCourses(courses)
