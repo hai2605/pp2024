@@ -89,15 +89,15 @@ def main():
         if choice == '1':
             courseID = selectCourse(courses)
             studentID = input("Enter student ID: ")
-            for student in students:
-                if student['id'] == studentID:
-                    for course in courses:
-                        if course['id'] == courseID:
-                            inputMark(student, course)
-                        else:
-                            print("Course not found!")    
+            student = next((s for s in students if s['id'] == studentID), None)
+            if student:
+                course = next((c for c in courses if c['id'] == courseID), None)
+                if course:
+                    inputMark(student, course)
                 else:
-                    print("Student not found!")
+                    print("Course not found!")
+            else:
+                print("Student not found!")
                     
 
         elif choice == '2':
@@ -109,15 +109,15 @@ def main():
         elif choice == '4':
             courseID = selectCourse(courses)
             studentID = input("Enter student ID: ")
-            for student in students: 
-                if student['id'] == studentID:
-                    for course in courses:
-                        if course['id'] == courseID:
-                            displayMark(student, course)
-                        else:
-                            print("Course not found!")
+            student = next((s for s in students if s['id'] == studentID), None)
+            if student:
+                course = next((c for c in courses if c['id'] == courseID), None)
+                if course:
+                    inputMark(student, course)
                 else:
-                    print("Student not found!")
+                    print("Course not found!")
+            else:
+                print("Student not found!") 
 
         elif choice == '5':
             print("Exiting Program.")
