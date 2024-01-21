@@ -12,7 +12,7 @@ class Student:
     
     #display marks of students
     def displayMarks(self, course):
-        if course.id in self.mark:
+        if course.id in self.marks:
             return f"{self.name} - {course.name}: {self.marks[course.id]}"
         else:
             return f"{self.name} - {course.name}: No mark available"
