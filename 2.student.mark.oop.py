@@ -46,15 +46,6 @@ def inputItemInfor (item):
         courseName = input(f"Enter course's name: ")
         return {'id': courseID, 'name': courseName}       
 
-# #Select item
-# def selectItem(item):
-#     if item == "student":
-#         studentID = int(input("Enter student's ID: "))
-#         return studentID
-#     elif item == "course":
-#         courseID = int(input("Enter course's ID: "))
-#         return courseID   
-
 #Display list of items
 def listItem (item, itemList):
     if item == "student":
